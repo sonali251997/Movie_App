@@ -2,8 +2,16 @@ import { Route, BrowserRouter, Routes } from "react-router-dom";
 import MovieDetails from "./containers/MovieDetails";
 import PopularMovie from "./containers/PopularMovie";
 import Layout from "./components/Layout";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { getGenres } from "./redux/geners";
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getGenres);
+  }, [dispatch]);
   return (
     <BrowserRouter>
       <Layout>

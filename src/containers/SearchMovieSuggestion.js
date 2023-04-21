@@ -4,9 +4,9 @@ import { useSelector } from "react-redux";
 
 const SearchMovieSuggestion = () => {
   const { search } = useSelector((store) => store);
+  const { genres } = useSelector((store) => store.genres);
 
-  console.log(search.isFetching);
-  return <Suggestion />;
+  return <Suggestion movies={search} genres={genres} />;
 };
 
 export default SearchMovieSuggestion;
