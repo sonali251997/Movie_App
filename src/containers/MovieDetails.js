@@ -25,7 +25,11 @@ const MovieDetails = () => {
     }
   }, [id, movie.id, dispatch]);
 
-  return "Hello";
+  return movie.isFetching ? (
+    <Loader />
+  ) : (
+    <Movie movie={movie} genres={genres} />
+  );
 };
 
 export default MovieDetails;
